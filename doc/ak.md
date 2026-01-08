@@ -57,6 +57,8 @@
 
   - React.js
   - Tailwind CSS 
+  
+![Technical Flowchart](flowchart.png)
 
 
 
