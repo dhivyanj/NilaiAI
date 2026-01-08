@@ -1,4 +1,4 @@
-# PPT
+# Architecture
 
 ## PROPOSED SOLUTION
 *What is your idea and how is that effective in solving the problem?*
