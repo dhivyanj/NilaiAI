@@ -57,8 +57,8 @@
 
   - React.js
   - Tailwind CSS 
-  
-![Technical Flowchart](flowchart.png)
+
+![Technical Flowchart](https://github.com/dhivyanj/NilaiAI/blob/feature/ak/doc/Flowchart.png)
 
 
 
