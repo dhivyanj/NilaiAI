@@ -3,7 +3,7 @@ import logoDark from '../res/logoDark.svg';
 import logoLight from '../res/logoLight.svg';
 import { getOverview, getPatterns, trackBehavior } from './services/api';
 
-const Dashboard = ({ onNavigateHome, isDark, setIsDark }) => {
+const Dashboard = ({ onNavigateHome, isDark, setIsDark, userId }) => {
   const [selectedPeriod, setSelectedPeriod] = useState('week');
   const [overview, setOverview] = useState(null);
   const [patterns, setPatterns] = useState(null);
@@ -11,7 +11,8 @@ const Dashboard = ({ onNavigateHome, isDark, setIsDark }) => {
   const [error, setError] = useState(null);
   
   const logo = isDark ? logoDark : logoLight;
-  const userId = "user_123"; // Hardcoded for demo, would come from Auth in production
+  // Use provided userId from parent (falls back to demo id)
+  const effectiveUserId = userId || 'user_123';
 
   // Fetch Live Data
   useEffect(() => {
@@ -25,8 +26,8 @@ const Dashboard = ({ onNavigateHome, isDark, setIsDark }) => {
         
         // Fetch Overview and Patterns in parallel 
         const [overviewData, patternsData] = await Promise.all([
-          getOverview(userId, periodVal),
-          getPatterns(userId, periodVal)
+          getOverview(effectiveUserId, periodVal),
+          getPatterns(effectiveUserId, periodVal)
         ]);
 
         if (isMounted) {
@@ -39,7 +40,7 @@ const Dashboard = ({ onNavigateHome, isDark, setIsDark }) => {
 
         // Track user visit for analytics
         trackBehavior({
-          user_id: userId,
+          user_id: effectiveUserId,
           event_type: "dashboard_view",
           timestamp: new Date().toISOString()
         });

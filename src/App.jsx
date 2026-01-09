@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 // Ensure this component exists
 import Dashboard from './Dashboard';
+import Login from './Login';
 // Theme-specific logos
 import logoDark from '../res/logoDark.svg';
 import logoLight from '../res/logoLight.svg'; 
@@ -8,11 +9,33 @@ import logoLight from '../res/logoLight.svg';
 const App = () => {
   const [currentPage, setCurrentPage] = useState('landing');
   const [isDark, setIsDark] = useState(true);
+  const [userId, setUserId] = useState(null);
   const logo = isDark ? logoDark : logoLight;
 
   // Page Routing: Switches to Dashboard if state changes
+  if (currentPage === 'login') {
+    return (
+      <Login
+        onLogin={(id) => {
+          setUserId(id);
+          setCurrentPage('dashboard');
+        }}
+        setUserId={setUserId}
+        isDark={isDark}
+        setIsDark={setIsDark}
+      />
+    );
+  }
+
   if (currentPage === 'dashboard') {
-    return <Dashboard onNavigateHome={() => setCurrentPage('landing')} isDark={isDark} setIsDark={setIsDark} />;
+    return (
+      <Dashboard
+        onNavigateHome={() => setCurrentPage('landing')}
+        isDark={isDark}
+        setIsDark={setIsDark}
+        userId={userId}
+      />
+    );
   }
 
   return (
@@ -69,7 +92,7 @@ const App = () => {
             {isDark ? '☀️' : '🌙'}
           </button>
           <button 
-            onClick={() => setCurrentPage('dashboard')}
+            onClick={() => setCurrentPage('login')}
             className={`px-5 py-2 rounded-full border transition-all text-sm cursor-pointer ${
               isDark
                 ? 'border-gray-700 hover:border-[#FF43D3] hover:text-[#FF43D3]'
@@ -224,7 +247,7 @@ const App = () => {
       </footer>
       
       {/* CSS Animation fix for Pulse (if not in tailwind config) */}
-      <style jsx>{`
+      <style>{`
         @keyframes pulse-slow {
           0%, 100% { opacity: 0.2; }
           50% { opacity: 0.35; }
