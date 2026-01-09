@@ -1,24 +1,41 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE = "https://nilaiai.onrender.com";
 
-export async function fetchOverview(userId) {
-  const res = await fetch(`${BASE_URL}/api/overview?user_id=${userId}`);
-  return res.json();
+export async function getOverview(userId, period = 7) {
+  try {
+    const res = await fetch(
+      `${API_BASE}/api/overview?user_id=${userId}&period=${period}`
+    );
+    if (!res.ok) throw new Error("Failed to fetch overview");
+    return await res.json();
+  } catch (error) {
+    console.error("Overview API Error:", error);
+    return null;
+  }
 }
 
-export async function fetchPatterns(userId) {
-  const res = await fetch(`${BASE_URL}/api/patterns?user_id=${userId}`);
-  return res.json();
-}
-
-export async function fetchInsights(userId) {
-  const res = await fetch(`${BASE_URL}/api/insights?user_id=${userId}`);
-  return res.json();
+export async function getPatterns(userId, period = 7) {
+  try {
+    const res = await fetch(
+      `${API_BASE}/api/patterns?user_id=${userId}&period=${period}`
+    );
+    if (!res.ok) throw new Error("Failed to fetch patterns");
+    return await res.json();
+  } catch (error) {
+    console.error("Patterns API Error:", error);
+    return null;
+  }
 }
 
 export async function trackBehavior(payload) {
-  await fetch(`${BASE_URL}/behavior/track`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
+  try {
+    const res = await fetch(`${API_BASE}/behavior/track`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    return await res.json();
+  } catch (error) {
+    console.error("Tracking API Error:", error);
+    return null;
+  }
 }
