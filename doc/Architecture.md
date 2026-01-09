@@ -53,7 +53,7 @@
   - React.js
   - Tailwind CSS 
 
-![Technical Flowchart](Flowchart.png)
+![Technical Flowchart](/src/doc/Flowchart.png)
 
 ## IMPACT & BENEFITS
 *Potential impact on the audience. how is it beneficial in solving the problem?*
