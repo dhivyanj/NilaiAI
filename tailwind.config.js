@@ -9,6 +9,12 @@ export default {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'], // Adds the font we used
       },
+      colors: {
+        primary: '#FF43D3',
+      },
+      animation: {
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
     },
   },
   plugins: [],
