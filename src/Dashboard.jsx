@@ -11,7 +11,7 @@ const Dashboard = ({ onNavigateHome, isDark, setIsDark }) => {
   const [error, setError] = useState(null);
   
   const logo = isDark ? logoDark : logoLight;
-  const userId = "demo"; // Hardcoded for demo, would come from Auth in production
+  const userId = "user_123"; // Hardcoded for demo, would come from Auth in production
 
   // Fetch Live Data
   useEffect(() => {
@@ -31,7 +31,7 @@ const Dashboard = ({ onNavigateHome, isDark, setIsDark }) => {
 
         if (isMounted) {
           if (!overviewData || !patternsData) {
-            throw new Error("Unable to retrieve data from Nilai AI Brain.");
+            throw new Error("Unable to retrieve data.");
           }
           setOverview(overviewData);
           setPatterns(patternsData);
@@ -116,7 +116,7 @@ const Dashboard = ({ onNavigateHome, isDark, setIsDark }) => {
               isDark ? 'bg-gray-900/40 border-gray-800' : 'bg-white/60 border-gray-200'
             }`}>
               <div className="w-12 h-12 border-4 border-[#FF43D3] border-t-transparent rounded-full animate-spin mb-4"></div>
-              <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>Connecting to Nilai Brain...</p>
+              <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>Refreshing Usage Patterns...</p>
             </div>
           )}
 
