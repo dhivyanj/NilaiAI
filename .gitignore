@@ -403,3 +403,5 @@ vscode/*
 !.vscode/extensions.json
 # Optional: ignore workspace file if you use one
 !*.code-workspace 
+
+.env
