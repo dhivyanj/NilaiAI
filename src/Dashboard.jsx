@@ -6,45 +6,9 @@ const Dashboard = ({ onNavigateHome, isDark, setIsDark }) => {
   const [selectedPeriod, setSelectedPeriod] = useState('week');
   const logo = isDark ? logoDark : logoLight;
 
-  // Mock data for behavioral patterns
-  const mockAnalytics = {
-    overallRisk: 28,
-    riskTrend: 'improving',
-    lastUpdated: 'Jan 9, 2026',
-    confidence: 87,
-    patterns: [
-      { name: 'Sleep Regularity', value: 72, status: 'stable', insight: 'Consistent sleep patterns detected' },
-      { name: 'Activity Engagement', value: 58, status: 'declining', insight: 'Reduced engagement in activities' },
-      { name: 'Social Interaction', value: 64, status: 'stable', insight: 'Stable social connection patterns' },
-      { name: 'Daily Routine', value: 82, status: 'improving', insight: 'Strengthened daily routine' }
-    ],
-    insights: [
-      {
-        type: 'observation',
-        title: 'Behavioral Pattern Detected',
-        description: 'Early indicators suggest reduced engagement in physical activities over the past 5 days.',
-        icon: '⚠️'
-      },
-      {
-        type: 'suggestion',
-        title: 'Recommended Action',
-        description: 'Consider increasing outdoor activities or light exercise to maintain behavioral balance.',
-        icon: '💡'
-      },
-      {
-        type: 'positive',
-        title: 'Positive Pattern',
-        description: 'Sleep consistency has improved by 15% compared to the previous week.',
-        icon: '✓'
-      },
-      {
-        type: 'suggestion',
-        title: 'Uncertainty Note',
-        description: 'Analysis based on 5 days of data. Pattern reliability increases with more observations.',
-        icon: 'ℹ️'
-      }
-    ]
-  };
+  const [overview, setOverview] = useState(null);
+  const [patterns, setPatterns] = useState(null);
+  const [insights, setInsights] = useState(null);
 
   return (
     <div className={`min-h-screen font-roboto overflow-hidden relative transition-colors duration-300 ${
@@ -332,6 +296,4 @@ const Dashboard = ({ onNavigateHome, isDark, setIsDark }) => {
       `}</style>
     </div>
   );
-};
-
-export default Dashboard;
+}
