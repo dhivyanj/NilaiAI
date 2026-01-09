@@ -80,30 +80,11 @@ const Login = ({ onLogin, setUserId, isDark = true, setIsDark = () => {} }) => {
         </div>
       </nav>
 
-      {/* Main hero with login form (landing layout from App.jsx) */}
-      <main className="relative z-10 px-6 py-20">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className={`inline-block px-4 py-1.5 rounded-full border text-[#FF43D3] text-xs font-bold tracking-widest uppercase mb-4 backdrop-blur-md ${
-            isDark ? 'bg-white/5 border-white/10' : 'bg-gray-100 border-gray-300'
-          }`}>Nilai AI</div>
-
-          <h2 className={`text-xl md:text-2xl font-light tracking-wide ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-            Understanding Well-Being, Respecting Privacy
-          </h2>
-
-          <h1 className={`text-5xl md:text-7xl font-bold leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Privacy-First AI for <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF43D3] to-blue-500">Early Well-Being Awareness</span>
-          </h1>
-
-          <p className={`text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-            Nilai AI identifies subtle behavioral patterns to surface early signs of mental imbalance — without surveys, interruptions, or intrusive monitoring.
-          </p>
-
-          {/* Login card placed beneath hero copy */}
-          <div className="mt-6 w-full max-w-md mx-auto">
+      {/* Minimal content: only the login textbox beneath the navbar */}
+      <main className="relative z-10 px-6 py-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="w-full max-w-md mx-auto mt-8">
             <form onSubmit={handleSubmit} className={`p-6 rounded-xl border ${isDark ? 'bg-gray-900/40 border-gray-800' : 'bg-white/60 border-gray-200'}`}>
-              <h3 className="text-lg font-bold mb-3">Sign in</h3>
               <label className="text-sm text-gray-400">User ID</label>
               <input
                 value={userIdInput}
@@ -111,7 +92,6 @@ const Login = ({ onLogin, setUserId, isDark = true, setIsDark = () => {} }) => {
                 placeholder="Enter your user id"
                 className="mt-2 mb-3 w-full px-3 py-2 border rounded-md bg-transparent"
               />
-              <p className="text-xs text-gray-500 mb-4">Password is fixed to <strong>0000</strong></p>
               {error && <div className="text-red-400 text-sm mb-3">{error}</div>}
               <button
                 type="submit"
@@ -124,16 +104,6 @@ const Login = ({ onLogin, setUserId, isDark = true, setIsDark = () => {} }) => {
           </div>
         </div>
       </main>
-
-      {/* Footer copied from App.jsx */}
-      <footer className={`relative z-10 border-t py-12 text-center text-sm transition-colors duration-300 ${
-        isDark ? 'border-white/5 text-gray-600' : 'border-gray-200 text-gray-500'
-      }`}>
-        <p className="flex items-center justify-center gap-3">
-          <img src={logo} alt="Nilai AI" className="h-6" />
-          <span>&copy; {new Date().getFullYear()} Nilai AI. Prioritizing Privacy & Well-being.</span>
-        </p>
-      </footer>
     </div>
   );
 };
