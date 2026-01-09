@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Well-Being Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    
+    <div class="container">
+
+        <header>
+            <h1> Personal Well-Being Dashboard</h1>
+            <button class="toggle" onclick="toggleDark()">Toggle</button>
+        </header>
+
+        <p>Behavioral insights based on your website usage patterns</p>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Current Insight</h3>
+                <div id="riskBadge" class="badge">Loading…</div>
+                <p id="personalInsight"></p>
+            </div>
+
+            <div class="card">
+                <h3>Healthy Baseline</h3>
+                <p id="healthyComparison"></p>
+            </div>
+
+            <div class="card">
+                <h3>Suggestions</h3>
+                <ul id="suggestions"></ul>
+            </div>
+
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Deviation Score Trend</h3>
+                <canvas id="deviationChart"></canvas>
+            </div>
+
+            <div class="card">
+                <h3>Session Duration Trend</h3>
+                <canvas id="durationChart"></canvas>
+            </div>
+        </div>
+
+        <footer>
+            ⚠️ This is not a medical diagnosis. Insights are for self-awareness only.
+        </footer>
+
+    </div>
+
+    <script src="ui.js"></script>
+</body>
+
+</html>
