@@ -427,3 +427,26 @@ vscode/*
 !.vscode/extensions.json
 # Optional: ignore workspace file if you use one
 !*.code-workspace 
+
+
+backend/data/*.csv
+backend/__pycache__/
+backend/data/__pycache__/
+backend/data/*.csv
+backend/models/*.pkl
+backend/models/__pycache__/
+backend/tests/__pycache__/
+backend/.env
+backend/venv/
+frontend/node_modules/
+frontend/build/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/.expo/
+
+
+backend/data/*.csv
+backend/venv/
+.env
