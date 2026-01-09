@@ -7,7 +7,7 @@ def save_session(data):
     cur.execute("""
         INSERT INTO sessions
         (user_id, login_time, session_duration, active_events, session_date)
-        VALUES (%s,%s,%s,%s,%s)
+        VALUES (%s, %s, %s, %s, %s)
     """, (
         data["user_id"],
         data["login_time"],

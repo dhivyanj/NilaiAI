@@ -2,10 +2,7 @@ from sklearn.ensemble import IsolationForest
 import pickle
 import os
 
-# Get absolute path of this file's directory
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-MODEL_PATH = os.path.join(BASE_DIR, "model.pkl")
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "model.pkl")
 
 def train_model(X):
     model = IsolationForest(
