@@ -2,8 +2,7 @@ from sklearn.ensemble import IsolationForest
 import pickle
 import os
 
-BASE_DIR = os.path.dirname(__file__)
-MODEL_PATH = os.path.join(BASE_DIR, "healthy_model.pkl")
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "healthy_model.pkl")
 
 def train_healthy_model(X):
     model = IsolationForest(
