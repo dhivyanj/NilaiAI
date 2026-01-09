@@ -4,8 +4,8 @@ import os
 def get_db():
     return psycopg2.connect(
         host=os.getenv("DB_HOST"),
-        user=os.getenv("DB_USER"),
-        password=os.getenv("DB_PASSWORD"),
+        port=os.getenv("DB_PORT", 5432),
         dbname=os.getenv("DB_NAME"),
-        port=os.getenv("DB_PORT", 5432)
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD")
     )
